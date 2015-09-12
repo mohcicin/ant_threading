@@ -25,8 +25,8 @@ public class TViewer extends Thread{
 	private imetier dao;
 	private Graph gr;
 	
-	public TViewer(MyViewer v){
-		this.mavue = v;
+	public TViewer(){
+		this.mavue = new MyViewer(null, this);
 		this.mavue.setVisible(true);
 		this.dao = new metierimpl();
 		this.gr = new Graph();

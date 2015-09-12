@@ -48,7 +48,7 @@ public class Viewer extends GuiAgent{
 		// TODO Auto-generated method stub
 		super.setup();
 		
-		mavue = new MyViewer(this);
+		mavue = new MyViewer(this,null);
 		mavue.setVisible(true);
 		dao = new metierimpl();
 		gr = new Graph();
