@@ -63,21 +63,23 @@ public class TViewer extends Thread{
 			List<TAnt_Agent> lsag = new ArrayList<TAnt_Agent>();
 			
 			
+			TCalculator calc = new TCalculator(mavue, gr, lsag);
+			calc.start();
+			
+			
 			
 			for (int i = 0; i < gr.getCities().size(); i++) {
 				//gr.getCities().get(i).setSuccesseur(dao.load_seccusseur_new(gr.getCities().get(i), gr));
 				ant[i] = new Ant("cicinant"+i, gr,gr.getCities().get(i),dao);
 				gr.getAnts().add(ant[i]);
 				
-				TAnt_Agent ant_agent = new TAnt_Agent(ant[i],i);
+				TAnt_Agent ant_agent = new TAnt_Agent(ant[i],i,calc);
 				lsag.add(ant_agent);
 				ant_agent.start();
 				
 			}
 			
-			TCalculator calc = new TCalculator(mavue, gr, lsag);
-			calc.start();
-			
+		
 			/*
 			for (int i = 0; i < gr.getCities().size(); i++) {
 				System.out.println("****************** GR City "+gr.getCities().get(i).getName()+" *** "+gr.getCities().get(i).getSuccesseur());

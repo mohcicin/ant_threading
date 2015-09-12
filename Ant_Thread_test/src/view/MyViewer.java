@@ -17,9 +17,9 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.text.View;
 
+import threads.TViewer;
 import agents.Calculator;
 import agents.Viewer;
-
 import metier.imetier;
 import metier.metierimpl;
 import entite.Ant;
@@ -48,15 +48,16 @@ public class MyViewer extends javax.swing.JFrame implements Serializable{
 	List<Double> indata = new ArrayList<Double>();
 	
 	private Viewer agent;
+	private TViewer tv;
 	
     /** Creates new form home */
-    public MyViewer(Viewer ag) {
+    public MyViewer(Viewer ag,TViewer v) {
     	jPanel2 = new MyPanel(this);
     	this.agent = ag;
         initComponents();
         setVisible(true);
         dao = new metierimpl();
-        
+        this.tv = v;
         
         alpha.setText("0.1");
 		beta.setText("0.1");
@@ -86,11 +87,8 @@ public class MyViewer extends javax.swing.JFrame implements Serializable{
 				indata.add(nbrant);
 				
 				
-				System.out.println("out "+indata.toString());
-				ev.addParameter(indata);
-				agent.postGuiEvent(ev);
 
-				
+				tv.start();
 			}
 		});
         
