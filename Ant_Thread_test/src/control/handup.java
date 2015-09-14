@@ -37,7 +37,7 @@ public class handup {
 			       }
 			}
 			
-			new TViewer(v)
+			new TViewer().start();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

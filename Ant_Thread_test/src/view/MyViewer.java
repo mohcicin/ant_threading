@@ -87,7 +87,7 @@ public class MyViewer extends javax.swing.JFrame implements Serializable{
 				indata.add(nbrant);
 				
 				
-
+				
 				tv.start();
 			}
 		});
